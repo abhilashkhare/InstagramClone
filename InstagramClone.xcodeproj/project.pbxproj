@@ -12,6 +12,7 @@
 		3465FE7B20CFA470004C165A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3465FE7A20CFA470004C165A /* Assets.xcassets */; };
 		3465FE7E20CFA470004C165A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3465FE7C20CFA470004C165A /* LaunchScreen.storyboard */; };
 		3465FE8620CFA4B4004C165A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3465FE8520CFA4B4004C165A /* SignInViewController.swift */; };
+		3465FE8920D0B0CF004C165A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3465FE8820D0B0CF004C165A /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3465FE7D20CFA470004C165A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3465FE7F20CFA470004C165A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3465FE8520CFA4B4004C165A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		3465FE8820D0B0CF004C165A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				3465FE8520CFA4B4004C165A /* SignInViewController.swift */,
+				3465FE8820D0B0CF004C165A /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3465FE8920D0B0CF004C165A /* SignUpViewController.swift in Sources */,
 				3465FE8620CFA4B4004C165A /* SignInViewController.swift in Sources */,
 				3465FE7420CFA46A004C165A /* AppDelegate.swift in Sources */,
 			);
