@@ -13,6 +13,11 @@
 		3465FE7E20CFA470004C165A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3465FE7C20CFA470004C165A /* LaunchScreen.storyboard */; };
 		3465FE8620CFA4B4004C165A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3465FE8520CFA4B4004C165A /* SignInViewController.swift */; };
 		3465FE8920D0B0CF004C165A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3465FE8820D0B0CF004C165A /* SignUpViewController.swift */; };
+		34EB6C1920D80C8F00DD6975 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB6C1820D80C8E00DD6975 /* SearchViewController.swift */; };
+		34EB6C1B20D80CAA00DD6975 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB6C1A20D80CAA00DD6975 /* CameraViewController.swift */; };
+		34EB6C1D20D80CBA00DD6975 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB6C1C20D80CBA00DD6975 /* ActivityViewController.swift */; };
+		34EB6C1F20D80CCE00DD6975 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB6C1E20D80CCE00DD6975 /* ProfileViewController.swift */; };
+		34EB6C2120D80CDC00DD6975 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB6C2020D80CDC00DD6975 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		3465FE7F20CFA470004C165A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3465FE8520CFA4B4004C165A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3465FE8820D0B0CF004C165A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		34EB6C1820D80C8E00DD6975 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		34EB6C1A20D80CAA00DD6975 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		34EB6C1C20D80CBA00DD6975 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		34EB6C1E20D80CCE00DD6975 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		34EB6C2020D80CDC00DD6975 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,11 @@
 			children = (
 				3465FE8520CFA4B4004C165A /* SignInViewController.swift */,
 				3465FE8820D0B0CF004C165A /* SignUpViewController.swift */,
+				34EB6C1820D80C8E00DD6975 /* SearchViewController.swift */,
+				34EB6C1A20D80CAA00DD6975 /* CameraViewController.swift */,
+				34EB6C1C20D80CBA00DD6975 /* ActivityViewController.swift */,
+				34EB6C1E20D80CCE00DD6975 /* ProfileViewController.swift */,
+				34EB6C2020D80CDC00DD6975 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -147,7 +162,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3465FE8920D0B0CF004C165A /* SignUpViewController.swift in Sources */,
+				34EB6C1D20D80CBA00DD6975 /* ActivityViewController.swift in Sources */,
+				34EB6C1B20D80CAA00DD6975 /* CameraViewController.swift in Sources */,
+				34EB6C2120D80CDC00DD6975 /* HomeViewController.swift in Sources */,
 				3465FE8620CFA4B4004C165A /* SignInViewController.swift in Sources */,
+				34EB6C1F20D80CCE00DD6975 /* ProfileViewController.swift in Sources */,
+				34EB6C1920D80C8F00DD6975 /* SearchViewController.swift in Sources */,
 				3465FE7420CFA46A004C165A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
