@@ -97,6 +97,7 @@
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
+                                    <action selector="signUpTouch:" destination="mGY-Of-jum" eventType="touchUpInside" id="xXQ-7S-10o"/>
                                     <segue destination="OsE-dF-Vlc" kind="presentation" id="Lwz-rb-aua"/>
                                 </connections>
                             </button>

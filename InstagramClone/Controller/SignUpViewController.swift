@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
@@ -19,6 +20,15 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func signUpTouch(_ sender: Any) {
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResultData, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+                return
+            }
+            print(authResultData?.user.email)
+        }
+    }
     @IBAction func dismissOnClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
