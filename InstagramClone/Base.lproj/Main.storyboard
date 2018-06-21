@@ -75,6 +75,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="sh3-2S-wcp" id="XA0-tg-G6q"/>
+                        <outlet property="password" destination="wJg-1L-UqO" id="Uqm-RY-Zc3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,6 +160,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Koz-NZ-fX0"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="vIX-QE-pr6" id="Tul-wt-8G9"/>
+                        <outlet property="passwordTextField" destination="lnu-W4-XXr" id="tlj-zJ-7c5"/>
+                        <outlet property="userName" destination="vjl-sG-dRu" id="rTR-cH-E9Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hmc-nz-xvy" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,6 +183,6 @@
         <image name="profile-placeholder" width="336" height="336"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L2f-pn-N8U"/>
+        <segue reference="Lwz-rb-aua"/>
     </inferredMetricsTieBreakers>
 </document>
