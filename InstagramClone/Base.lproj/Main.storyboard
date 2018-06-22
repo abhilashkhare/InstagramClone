@@ -98,7 +98,6 @@
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUpTouch:" destination="mGY-Of-jum" eventType="touchUpInside" id="xXQ-7S-10o"/>
-                                    <segue destination="OsE-dF-Vlc" kind="presentation" id="Lwz-rb-aua"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg9-5d-7ax">
@@ -183,7 +182,4 @@
     <resources>
         <image name="profile-placeholder" width="336" height="336"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Lwz-rb-aua"/>
-    </inferredMetricsTieBreakers>
 </document>
