@@ -69,13 +69,8 @@
 		3465FE6720CFA46A004C165A = {
 			isa = PBXGroup;
 			children = (
+				34CA982120DF70ED0003F46B /* Storyboards */,
 				34EB6C3420DB4D3300DD6975 /* GoogleService-Info.plist */,
-				34EB6C2F20DB42CB00DD6975 /* ProfileViewControllers.storyboard */,
-				34EB6C2D20DB42AD00DD6975 /* ActivityViewControllers.storyboard */,
-				34EB6C2A20DB428400DD6975 /* CameraViewControllers.storyboard */,
-				34EB6C2820DB425D00DD6975 /* SearchViewControllers.storyboard */,
-				34EB6C2520DB41CC00DD6975 /* HomeViewControllers.storyboard */,
-				34EB6C2220DA02BB00DD6975 /* ViewControllers.storyboard */,
 				3465FE7220CFA46A004C165A /* InstagramClone */,
 				3465FE7120CFA46A004C165A /* Products */,
 				56E430D3DA46BABCFD70E483 /* Pods */,
@@ -96,7 +91,6 @@
 			children = (
 				3465FE8720CFA4BB004C165A /* Controller */,
 				3465FE7320CFA46A004C165A /* AppDelegate.swift */,
-				3465FE7720CFA46A004C165A /* Main.storyboard */,
 				3465FE7A20CFA470004C165A /* Assets.xcassets */,
 				3465FE7C20CFA470004C165A /* LaunchScreen.storyboard */,
 				3465FE7F20CFA470004C165A /* Info.plist */,
@@ -116,6 +110,20 @@
 				34EB6C2020D80CDC00DD6975 /* HomeViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		34CA982120DF70ED0003F46B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				34EB6C2F20DB42CB00DD6975 /* ProfileViewControllers.storyboard */,
+				34EB6C2D20DB42AD00DD6975 /* ActivityViewControllers.storyboard */,
+				34EB6C2A20DB428400DD6975 /* CameraViewControllers.storyboard */,
+				34EB6C2820DB425D00DD6975 /* SearchViewControllers.storyboard */,
+				34EB6C2520DB41CC00DD6975 /* HomeViewControllers.storyboard */,
+				34EB6C2220DA02BB00DD6975 /* ViewControllers.storyboard */,
+				3465FE7720CFA46A004C165A /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		56E430D3DA46BABCFD70E483 /* Pods */ = {
@@ -447,7 +455,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AVL8M2M6VM;
 				INFOPLIST_FILE = InstagramClone/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abhidev.InstagramClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -463,7 +474,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AVL8M2M6VM;
 				INFOPLIST_FILE = InstagramClone/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.abhidev.InstagramClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
