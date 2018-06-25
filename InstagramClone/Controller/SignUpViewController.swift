@@ -22,20 +22,29 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func signUpTouch(_ sender: Any) {
+
+        
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResultData, error) in
             if error != nil {
                 print(error?.localizedDescription)
                 return
             }
-            print(authResultData?.user.email)
+            
+            // Create reference to the DB location
+            
+            let ref = Database.database().reference()
+            print(ref.description())
+            
+            let userReference = ref.child("users")
+            let userID = authResultData?.user.uid
+            let newUserReference = userReference.child(userID!)
+            newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text])
+            print("New User reference description\(newUserReference.description())")
+            
         }
     }
     @IBAction func dismissOnClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
