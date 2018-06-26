@@ -10,15 +10,21 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     @IBOutlet weak var userName: UITextField!    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    var imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(tapGestureRecognizer:)))
+        profileImage.isUserInteractionEnabled = true
+        profileImage.addGestureRecognizer(tapGestureRecognizer)
     }
 
     @IBAction func signUpTouch(_ sender: Any) {
@@ -46,6 +52,14 @@ class SignUpViewController: UIViewController {
     @IBAction func dismissOnClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+     let photo = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.dismiss(animated: true, completion: nil)
+
+    }
+    
+    @IBAction func selectPhoto(tapGestureRecognizer: UITapGestureRecognizer){
+        self.present(imagePicker, animated: true, completion: nil)
+    }
 }
