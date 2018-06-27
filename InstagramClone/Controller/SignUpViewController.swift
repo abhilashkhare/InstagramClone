@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
@@ -17,6 +18,7 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     
+    var selectedImage : UIImage!
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -35,17 +37,28 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 print(error?.localizedDescription)
                 return
             }
-            
-            // Create reference to the DB location
-            
-            let ref = Database.database().reference()
-            print(ref.description())
-            
-            let userReference = ref.child("users")
             let userID = authResultData?.user.uid
-            let newUserReference = userReference.child(userID!)
-            newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text])
-            print("New User reference description\(newUserReference.description())")
+
+            let storageRef = Storage.storage().reference(forURL : "gs://instagramclone-1eb2f.appspot.com").child("profile_image").child(userID!)
+            //Convert Image to Firebase friendly JPEG format
+
+            if let profileImage = self.selectedImage ,let photoData = UIImageJPEGRepresentation(profileImage, 0.1){
+                storageRef.putData(photoData, metadata: nil, completion: { (metaData, error) in
+                    if error != nil {
+                        return
+                    }
+                    let profileImageUrl = metaData?.path?.description
+                    // Create reference to the DB location
+                    
+                    let ref = Database.database().reference()                    
+                    let userReference = ref.child("users")
+                    let newUserReference = userReference.child(userID!)
+                    newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text,"profileImageURL":profileImageUrl])
+                    print("New User reference description\(newUserReference.description())")
+                    
+                })
+            }
+        
             
         }
     }
@@ -55,8 +68,9 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage, let photoData = UIImageJPEGRepresentation(photo, 0.8){
+        if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profileImage.image = photo
+            selectedImage = photo
         }
         self.dismiss(animated: true, completion: nil)
 
