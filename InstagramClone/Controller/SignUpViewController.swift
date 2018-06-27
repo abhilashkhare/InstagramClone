@@ -53,10 +53,17 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         self.dismiss(animated: true, completion: nil)
     }
 
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-     let photo = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage, let photoData = UIImageJPEGRepresentation(photo, 0.8){
+            profileImage.image = photo
+        }
         self.dismiss(animated: true, completion: nil)
 
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func selectPhoto(tapGestureRecognizer: UITapGestureRecognizer){
