@@ -30,30 +30,30 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     }
 
     @IBAction func signUpTouch(_ sender: Any) {
-
-        
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResultData, error) in
             if error != nil {
-                print(error?.localizedDescription)
+                print("USER CREATION ERROR \(error?.localizedDescription)")
                 return
             }
             let userID = authResultData?.user.uid
 
             let storageRef = Storage.storage().reference(forURL : "gs://instagramclone-1eb2f.appspot.com").child("profile_image").child(userID!)
             //Convert Image to Firebase friendly JPEG format
-
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpg"
+            
             if let profileImage = self.selectedImage ,let photoData = UIImageJPEGRepresentation(profileImage, 0.1){
-                storageRef.putData(photoData, metadata: nil, completion: { (metaData, error) in
+                storageRef.putData(photoData, metadata: metaData, completion: { (metadata, error) in
                     if error != nil {
                         return
                     }
-                    let profileImageUrl = metaData?.path?.description
+                    let profileImageUrl = metaData.path?.description
                     // Create reference to the DB location
                     
-                    let ref = Database.database().reference()                    
+                    let ref = Database.database().reference()
                     let userReference = ref.child("users")
                     let newUserReference = userReference.child(userID!)
-                    newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text,"profileImageURL":profileImageUrl])
+                    newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text,"profileImageURL": profileImageUrl])
                     print("New User reference description\(newUserReference.description())")
                     
                 })
@@ -73,7 +73,6 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             selectedImage = photo
         }
         self.dismiss(animated: true, completion: nil)
-
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
