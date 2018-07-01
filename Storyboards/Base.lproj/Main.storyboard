@@ -35,7 +35,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <segue destination="OsE-dF-Vlc" kind="presentation" id="L2f-pn-N8U"/>
+                                    <action selector="clickSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i4k-NL-3RM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXE-CH-SQu">
@@ -79,6 +79,7 @@
                         <outlet property="email" destination="sh3-2S-wcp" id="XA0-tg-G6q"/>
                         <outlet property="password" destination="wJg-1L-UqO" id="Uqm-RY-Zc3"/>
                         <outlet property="signInButton" destination="utb-Hs-YL2" id="ZWN-eX-eUd"/>
+                        <segue destination="OsE-dF-Vlc" kind="presentation" identifier="signInSuccess" id="r8Z-md-ktu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

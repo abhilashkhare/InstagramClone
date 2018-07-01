@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var signInButton: UIButton!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         signInButton.isEnabled = false
@@ -38,5 +41,15 @@ class SignInViewController: UIViewController {
         signInButton.isEnabled = true
     }
     
-
+    @IBAction func clickSignInButton(_ sender: Any) {
+        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (authDataResult, error) in
+            if(error != nil){
+                print("Authentication issue - \(error?.localizedDescription)")
+            }
+            print("User Email - \(authDataResult?.user.email)")
+            self.performSegue(withIdentifier: "signInSuccess", sender: nil)
+        }
+        
+    }
+    
 }
