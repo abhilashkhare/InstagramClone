@@ -53,11 +53,17 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResultData, error) in
             if error != nil {
                 print("USER CREATION ERROR \(error?.localizedDescription)")
-                return
+                print("Authentication issue - \(error?.localizedDescription)")
+                let alert = UIAlertController(title: "", message: "Could not create new user.Please try again with different username/email", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
-            let userID = authResultData?.user.uid
+            else{
+            if let userID = authResultData?.user.uid{
 
-            let storageRef = Storage.storage().reference(forURL : "gs://instagramclone-1eb2f.appspot.com").child("profile_image").child(userID!)
+                let storageRef = Storage.storage().reference(forURL : "gs://instagramclone-1eb2f.appspot.com").child("profile_image").child(userID)
             //Convert Image to Firebase friendly JPEG format
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpg"
@@ -72,19 +78,20 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                     
                     let ref = Database.database().reference()
                     let userReference = ref.child("users")
-                    let newUserReference = userReference.child(userID!)
+                    let newUserReference = userReference.child(userID)
                     newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text,"profileImageURL": profileImageUrl])
                     print("New User reference description\(newUserReference.description())")
-                    
+                    self.dismiss(animated: true, completion: nil)
+
                 })
             }
-        
-            
+                }
+            }
         }
     }
-    @IBAction func dismissOnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func dismissOnClick(_ sender: Any) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
