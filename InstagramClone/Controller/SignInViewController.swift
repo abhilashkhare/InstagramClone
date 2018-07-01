@@ -30,8 +30,6 @@ class SignInViewController: UIViewController {
     }
     
     @objc  func textFieldDidChange(textField : UITextField){
-        print(email.text)
-        print(password.text)
         guard  let  emailText = email.text,!emailText.isEmpty, let passwordText = password.text, !passwordText.isEmpty else {
             signInButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
             signInButton.isEnabled = false
@@ -45,6 +43,11 @@ class SignInViewController: UIViewController {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (authDataResult, error) in
             if(error != nil){
                 print("Authentication issue - \(error?.localizedDescription)")
+                let alert = UIAlertController(title: "", message: "Invalid Email/Password. Please enter valid credentials", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
             print("User Email - \(authDataResult?.user.email)")
             self.performSegue(withIdentifier: "signInSuccess", sender: nil)
