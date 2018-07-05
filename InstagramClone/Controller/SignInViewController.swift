@@ -52,7 +52,5 @@ class SignInViewController: UIViewController {
             print("User Email - \(authDataResult?.user.email)")
             self.performSegue(withIdentifier: "signInSuccess", sender: nil)
         }
-        
-    }
-    
+    }    
 }
