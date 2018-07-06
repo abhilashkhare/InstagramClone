@@ -89,11 +89,7 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             }
         }
     }
-//    @IBAction func dismissOnClick(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
 
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profileImage.image = photo
