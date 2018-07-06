@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o0e-9l-ZR4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -9,14 +13,20 @@
         <!--Home-->
         <scene sceneID="01H-km-9ey">
             <objects>
-                <viewController id="FlQ-IY-slT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="FlQ-IY-slT" customClass="HomeViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qrp-HQ-lXw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="HFh-Az-vjw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="c5T-oW-X7H"/>
+                    <navigationItem key="navigationItem" title="Home" id="c5T-oW-X7H">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="6od-gU-NHT">
+                            <connections>
+                                <action selector="logOutButton:" destination="FlQ-IY-slT" id="Tz0-bp-gKb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QvU-oH-jrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
