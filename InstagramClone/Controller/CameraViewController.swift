@@ -8,28 +8,44 @@
 
 import UIKit
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+
+    @IBOutlet var photo : UIImageView!
+    
+    @IBOutlet weak var captionTextView: UITextView!
+    
+    @IBOutlet weak var postButton: UIButton!
+    
+    var selectedImage : UIImage!
+    var imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(tapGestureRecognizer:)))
+        imagePicker.delegate = self
+        photo.isUserInteractionEnabled = true
+        photo.addGestureRecognizer(tapGestureRecognizer)
 
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func postTouch(_ sender: Any) {
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let postSelected = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            photo.image = postSelected
+            selectedImage = postSelected
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func selectPhoto(tapGestureRecognizer: UITapGestureRecognizer){
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

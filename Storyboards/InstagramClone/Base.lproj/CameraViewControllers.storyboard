@@ -13,7 +13,7 @@
         <!--Camera-->
         <scene sceneID="ZeH-Gy-5Rt">
             <objects>
-                <viewController id="a6J-O9-hwH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraViewController" id="a6J-O9-hwH" customClass="CameraViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oLR-1X-CCv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,6 +54,9 @@
                                     <constraint firstAttribute="height" constant="60" id="g2F-0a-gqb"/>
                                 </constraints>
                                 <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postTouch:" destination="a6J-O9-hwH" eventType="touchDragInside" id="DYf-ll-5Tl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,6 +71,11 @@
                         <viewLayoutGuide key="safeArea" id="LrB-qT-IZw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Camera" id="31I-Wx-pfv"/>
+                    <connections>
+                        <outlet property="captionTextView" destination="F7a-hh-eOX" id="aID-Xl-gvo"/>
+                        <outlet property="photo" destination="mAO-3L-AH5" id="JFe-09-kwM"/>
+                        <outlet property="postButton" destination="KXu-zZ-nt9" id="0kd-wU-plt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xai-aN-EIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
