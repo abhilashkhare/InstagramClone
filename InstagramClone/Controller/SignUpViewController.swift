@@ -49,6 +49,16 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     
 
+    fileprivate func configDatabase(_ profileImageUrl: String? , _ userID : String) {
+        // Create reference to the DB location
+        
+        let ref = Database.database().reference()
+        let userReference = ref.child("users")
+        let newUserReference = userReference.child(userID)
+        newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text,"profileImageURL": profileImageUrl])
+        print("New User reference description\(newUserReference.description())")
+    }
+    
     @IBAction func signUpTouch(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResultData, error) in
             if error != nil {
@@ -74,13 +84,7 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                         return
                     }
                     let profileImageUrl = metaData.path?.description
-                    // Create reference to the DB location
-                    
-                    let ref = Database.database().reference()
-                    let userReference = ref.child("users")
-                    let newUserReference = userReference.child(userID)
-                    newUserReference.setValue(["username":self.userName.text,"email" : self.emailTextField.text,"profileImageURL": profileImageUrl])
-                    print("New User reference description\(newUserReference.description())")
+                    self.configDatabase(profileImageUrl,userID)
                     self.dismiss(animated: true, completion: nil)
 
                 })
