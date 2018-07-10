@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseDatabase
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
@@ -28,6 +30,39 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
 
     }
     @IBAction func postTouch(_ sender: Any) {
+        print("pressed")
+        if let profileImage = self.selectedImage ,let photoData = UIImageJPEGRepresentation(profileImage, 0.1){
+            print("INSIDE")
+            let photoIDString = NSUUID().uuidString
+        let storageRef = Storage.storage().reference(forURL : "gs://instagramclone-1eb2f.appspot.com").child("posts").child(photoIDString)
+        //Convert Image to Firebase friendly JPEG format
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        
+    
+            storageRef.putData(photoData, metadata: metaData, completion: { (metadata, error) in
+                if error != nil {
+                    return
+                }
+                let photoURL = metaData.path?.description
+                // Create reference to the DB location
+                self.sendDatatoDatabase(photoURL: photoURL!)
+                
+            })
+        }
+        else{
+            print("Please choose an image to upload")
+        }
+        
+    }
+    
+    func sendDatatoDatabase(photoURL  : String){
+        let ref = Database.database().reference()
+        let postReference = ref.child("posts")
+        let newPostID = postReference.childByAutoId().key
+        let newPostReference = postReference.child(newPostID)
+        newPostReference.setValue(["photoURL":photoURL])
+        print("New User reference description\(newPostReference.description())")
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

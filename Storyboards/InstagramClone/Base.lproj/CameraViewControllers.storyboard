@@ -55,7 +55,7 @@
                                 </constraints>
                                 <state key="normal" title="Post"/>
                                 <connections>
-                                    <action selector="postTouch:" destination="a6J-O9-hwH" eventType="touchDragInside" id="DYf-ll-5Tl"/>
+                                    <action selector="postTouch:" destination="a6J-O9-hwH" eventType="touchUpInside" id="XcS-0W-WjJ"/>
                                 </connections>
                             </button>
                         </subviews>
