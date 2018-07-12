@@ -68,6 +68,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
                 print("Posted successfully")
                 self.photo.image = UIImage(named: "profile-placeholder")
                 self.captionTextView.text = " "
+                self.tabBarController?.selectedIndex = 0
             }
         }
         ()
