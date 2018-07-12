@@ -27,7 +27,19 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
         imagePicker.delegate = self
         photo.isUserInteractionEnabled = true
         photo.addGestureRecognizer(tapGestureRecognizer)
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        handlePost()
+    }
+    
+    func handlePost(){
+        if selectedImage != nil{
+            postButton.isEnabled = true
+        } else {
+            postButton.isEnabled = false
+        }
+        
     }
     @IBAction func postTouch(_ sender: Any) {
         print("pressed")
