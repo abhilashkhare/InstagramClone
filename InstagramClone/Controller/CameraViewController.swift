@@ -61,7 +61,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
         let postReference = ref.child("posts")
         let newPostID = postReference.childByAutoId().key
         let newPostReference = postReference.child(newPostID)
-        newPostReference.setValue(["photoURL":photoURL]) { (error, databaseReference) in
+        newPostReference.setValue(["photoURL":photoURL,"caption" : captionTextView.text.description]) { (error, databaseReference) in
             if error != nil {
                 print("Error posting\(error?.localizedDescription)")
             } else {
