@@ -66,6 +66,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
                 print("Error posting\(error?.localizedDescription)")
             } else {
                 print("Posted successfully")
+                self.photo.image = UIImage(named: "profile-placeholder")
+                self.captionTextView.text = " "
             }
         }
         ()
