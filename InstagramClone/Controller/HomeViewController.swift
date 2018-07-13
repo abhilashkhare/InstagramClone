@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        loadPosts()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,10 +40,11 @@ class HomeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         self.dismiss(animated: true, completion: nil)
     }
     
-//    func loadPosts(){
-//        Database.database().reference().child("posts").observe(.childAdded) { (dataSnapShot) in
-//            print(dataSnapShot.value)
-//        }
-//    }
+    func loadPosts(){
+        Database.database().reference().child("posts").observe(.childAdded) { (dataSnapShot) in
+            print("Snapshot")
+           print(dataSnapShot.value)
+        }
+    }
 }
 
