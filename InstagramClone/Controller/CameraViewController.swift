@@ -56,9 +56,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
                 if error != nil {
                     return
                 }
-                let photoURL = metaData.path?.description
+                let photoUrl = metaData.path?.description
                 // Create reference to the DB location
-                self.sendDatatoDatabase(photoURL: photoURL!)
+                self.sendDatatoDatabase(photoURL: photoUrl!)
                 
             })
         }
