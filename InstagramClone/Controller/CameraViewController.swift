@@ -46,19 +46,20 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
         if let profileImage = self.selectedImage ,let photoData = UIImageJPEGRepresentation(profileImage, 0.1){
             print("INSIDE")
             let photoIDString = NSUUID().uuidString
-        let storageRef = Storage.storage().reference(forURL : "gs://instagramclone-1eb2f.appspot.com").child("posts").child(photoIDString)
+            let imagePath =  photoIDString + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        let storageRef = Storage.storage().reference(forURL : "gs://instagramclone-1eb2f.appspot.com")
         //Convert Image to Firebase friendly JPEG format
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         
     
-            storageRef.putData(photoData, metadata: metaData, completion: { (metadata, error) in
+            storageRef.child(imagePath).putData(photoData, metadata: metaData, completion: { (metadata, error) in
                 if error != nil {
                     return
                 }
-                let photoUrl = metaData.path?.description
+                let photoUrl = storageRef.child(metaData.path!).description
                 // Create reference to the DB location
-                self.sendDatatoDatabase(photoURL: photoUrl!)
+                self.sendDatatoDatabase(photoURL: photoUrl)
                 
             })
         }
