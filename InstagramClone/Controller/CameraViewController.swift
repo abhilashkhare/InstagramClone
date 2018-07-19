@@ -51,8 +51,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
         //Convert Image to Firebase friendly JPEG format
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
-        
-    
             storageRef.child(imagePath).putData(photoData, metadata: metaData, completion: { (metadata, error) in
                 if error != nil {
                     return
@@ -60,7 +58,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
                 let photoUrl = storageRef.child(metaData.path!).description
                 // Create reference to the DB location
                 self.sendDatatoDatabase(photoURL: photoUrl)
-                
             })
         }
         else{
